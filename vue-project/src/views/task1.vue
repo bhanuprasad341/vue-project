@@ -2,17 +2,18 @@
   <div>
     <h1>Patient Information 1</h1>
     <label for="fname">First Name:</label> 
-    <input type="text" v-model="firstname" placeholder="Enter First Name" />
+    <input type="text" v-model="first_name" placeholder="Enter First Name" />
     <label for="mname">Midddle Name</label> 
-    <input type="text" v-model="middlename" placeholder="Midddle Name" />  
+    <input type="text" v-model="middle_name" placeholder="Midddle Name" />  
     <label for="lname">Last Name</label>
-    <input type="text" v-model="lastname" placeholder="Last Name" />  
+    <input type="text" v-model="last_name" placeholder="Last Name" />  
     <label for="gender">Gender</label>
-    <select v-model="gender" name="gender">
-    <option value="male">Male</option>
-    <option value="female">Female</option>
-    <option value="other">Other</option>
-    </select>
+    <input type="radio" v-model="gender" name="gender" value="Male">
+    <label for="male">Male</label>
+    <input type="radio" v-model="gender" name="gender" value="Female">
+    <label for="female">Female</label>
+    <input type="radio" v-model="other" name="gender" value="Other">
+    <label for="other">Other</label>
     
      <br>
      <label for="dob">Date Of Birth</label>
@@ -60,17 +61,62 @@
      
     <button @click="showMessage">Submit</button>
     <div v-if="isSubmit">
-      {{ this.data }}
+      {{ this.first_name}}
+      {{this.middle_name }}
+      {{this.last_name}}
+      {{this.gender}}
+      {{this.date}}
+      {{this.number}}
+      {{this.email}}
+      {{this.address}}
+      {{this.state}}
+      {{this.city}}
+      {{this.code}}
+      {{this.race}}
+      {{this.ecity}}
+      {{this.facility}}
+      {{this.order}}
+      <table>
+    <tr>
+        <th scope="col">First Name</th>        
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Date</th>
+        <th scope="col">Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">State</th>
+        <th scope="col">City</th>
+        <th scope="col">Race</th>
+        <th scope="col">ECity</th>
+    </tr>
+    <tr>
+        <td scope=“row”>{{this.first_name}}</td> 
+        <td>{{this.middle_name}}</td>
+        <td>{{this.last_name}}</td>
+        <td>{{this.gender}}</td>
+        <td>{{this.date}}</td>
+        <td>{{this.address}}</td>
+        <td>{{this.number}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.city}}</td>
+        <td>{{this.state}}</td>
+        <td>{{this.race}}</td>
+        <td>{{this.ecity}}</td>
+    </tr>
+    </table>
     </div>
   </div>
+  
 </template>
 <script>
 export default {
   data() {
     return {
-      firstname: "",
-      middlename: "",
-      lastname:"",
+      first_name: "",
+      middle_name: "",
+      last_name:"",
       gender:"",
       date:"",
       number:"",
@@ -90,7 +136,7 @@ export default {
   methods: {
     showMessage() {
       this.isSubmit = true;
-      this.data = {firstname:this.firstname,middlename:this.middlename,lastname:this.lastname,gender:this.gender,date:this.date,
+      this.data = {first_name:this.first_name,middle_name:this.middle_name,last_name:this.last_name,gender:this.gender,date:this.date,
       number:this.number,email:this.email,address:this.address,state:this.state,city:this.city,
       code:this.code,race:this.race,ecity:this.ecity,facility:this.facility,order:this.order}
     },
